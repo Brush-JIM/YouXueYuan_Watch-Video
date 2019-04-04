@@ -1,5 +1,6 @@
 # 优学院-YouXueYuan-JavaScript
-由于3月31日账号被flag了，到4月5日凌晨才解决，所以为了避免出现类似问题，项目在Bitbucket也会同步更新[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/)  
+
+项目在Bitbucket同步更新[https://bitbucket.org/Brush-JIM/backup/](https://bitbucket.org/Brush-JIM/backup/)  
   
 可用来看优学院视频而不用手动点击  
 Python程序版请到隔壁 [https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python)  

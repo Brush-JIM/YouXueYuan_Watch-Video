@@ -1,11 +1,17 @@
 # 优学院-YouXueYuan-JavaScript
 
-项目在Bitbucket同步更新[https://bitbucket.org/Brush-JIM/backup/](https://bitbucket.org/Brush-JIM/backup/)  
+项目地址  
+GitHub:[https://github.com/Brush-JIM/YouXueYuan-JavaScript](https://github.com/Brush-JIM/YouXueYuan-JavaScript)
+Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/)  
   
 可用来看优学院视频而不用手动点击  
-Python程序版请到隔壁 [https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python)  
+Python程序版请到隔壁 GitHub:[https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python) or Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-python/](https://bitbucket.org/Brush-JIM/youxueyuan-python/)  
 # 食用方法  
-* ①访问[https://github.com/Brush-JIM/YouXueYuan-JavaScript/raw/master/优学院看视频.user.js](https://github.com/Brush-JIM/YouXueYuan-JavaScript/raw/master/优学院看视频.user.js)，安装脚本“优学院看视频.user.js”到Tampermonkey/Violentmonkey/Greasemonkey中  
+* ①访问  
+    GitHub:[https://raw.githubusercontent.com/Brush-JIM/YouXueYuan-JavaScript/master/优学院看视频.user.js](https://raw.githubusercontent.com/Brush-JIM/YouXueYuan-JavaScript/master/优学院看视频.user.js)  
+    or  
+    Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/优学院看视频.user.js](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/优学院看视频.user.js)  
+  安装脚本“优学院看视频.user.js”到Tampermonkey/Violentmonkey/Greasemonkey中  
 * ②进入课程，右上角的“咨询客服”会修改成按钮，点击改后的按钮即可  
 
 # 注意
@@ -17,14 +23,13 @@ Firefox请安装[Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/ta
 理论上无论是Tampermonkey还是Violentmonkey抑或是Greasemonkey，脚本都是互通的，都可以用，只是理论上！请自行测试  
 
 # 日志
-[CHANGELOG.md](https://github.com/Brush-JIM/YouXueYuan-JavaScript/blob/master/CHANGELOG.md)
+CHANGELOG.md [GitHub](https://github.com/Brush-JIM/YouXueYuan-JavaScript/blob/master/CHANGELOG.md) or [Bitbucket](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/CHANGELOG.md?fileviewer=file-view-default)  
   
 # 最后  
-我读的专业不是编程方向的，纯靠兴趣爱好，这学期课很满，有问题不一定能及时解决  
+我读的专业不是编程方向的，纯靠兴趣爱好  
 且js没学过，技术纯属渣渣  
 所以出现问题请不要大喷  
   
 ---
-代码开源  
-免费  
+代码开源、免费  
 不接受任何捐赠  

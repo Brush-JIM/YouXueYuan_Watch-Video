@@ -1,11 +1,14 @@
 # 优学院-YouXueYuan-JavaScript
 
 项目地址  
-GitHub:[https://github.com/Brush-JIM/YouXueYuan-JavaScript](https://github.com/Brush-JIM/YouXueYuan-JavaScript)
+GitHub:[https://github.com/Brush-JIM/YouXueYuan-JavaScript](https://github.com/Brush-JIM/YouXueYuan-JavaScript)  
 Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/)  
   
 可用来看优学院视频而不用手动点击  
-Python程序版请到隔壁 GitHub:[https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python) or Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-python/](https://bitbucket.org/Brush-JIM/youxueyuan-python/)  
+Python程序版请到隔壁  
+GitHub:[https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python)  
+Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-python/](https://bitbucket.org/Brush-JIM/youxueyuan-python/)  
+  
 # 食用方法  
 * ①访问  
     GitHub:[https://raw.githubusercontent.com/Brush-JIM/YouXueYuan-JavaScript/master/优学院看视频.user.js](https://raw.githubusercontent.com/Brush-JIM/YouXueYuan-JavaScript/master/优学院看视频.user.js)  

@@ -5,25 +5,28 @@ GitHub:[https://github.com/Brush-JIM/YouXueYuan-JavaScript](https://github.com/B
 Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/)  
   
 可用来看优学院视频而不用手动点击  
+  
 Python程序版请到隔壁  
 GitHub:[https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python)  
 Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-python/](https://bitbucket.org/Brush-JIM/youxueyuan-python/)  
   
 # 食用方法  
-* ①访问  
+* 安装Tampermonkey（推荐，脚本是在Tampermonkey下编写，使用正常）或Greasemonkey或Violentmonkey，安装方法在后面的“注意”标题
+* 访问  
     GitHub:[https://raw.githubusercontent.com/Brush-JIM/YouXueYuan-JavaScript/master/优学院看视频.user.js](https://raw.githubusercontent.com/Brush-JIM/YouXueYuan-JavaScript/master/优学院看视频.user.js)  
     or  
     Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/优学院看视频.user.js](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/优学院看视频.user.js)  
   安装脚本“优学院看视频.user.js”到Tampermonkey/Violentmonkey/Greasemonkey中  
-* ②进入课程，右上角的“咨询客服”会修改成按钮，点击改后的按钮即可  
+* 进入课程，右上角的“咨询客服”会修改成按钮，点击改后的按钮即可  
 
 # 注意
-脚本依赖油猴实现  
-本人使用Tampermonkey  
-Google chrome请安装[Tampermonkey](https://tampermonkey.net/)或[Violentmonkey](https://violentmonkey.github.io/)  
-Firefox请安装[Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)或[Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)或[Violentmonkey](https://addons.mozilla.org/zh-CN/firefox/addon/violentmonkey/)  
-其他浏览器请看[https://greasyfork.org/zh-CN](https://greasyfork.org/zh-CN)  
-理论上无论是Tampermonkey还是Violentmonkey抑或是Greasemonkey，脚本都是互通的，都可以用，只是理论上！请自行测试  
+* 答题请手动，项目没打算增加自动答题功能  
+* 脚本依赖油猴实现  
+  本人使用Tampermonkey  
+  Google chrome请安装[Tampermonkey](https://tampermonkey.net/)或[Violentmonkey](https://violentmonkey.github.io/)  
+  Firefox请安装[Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)或[Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)或[Violentmonkey](https://addons.mozilla.org/zh-CN/firefox/addon/violentmonkey/)  
+  其他浏览器请看[https://greasyfork.org/zh-CN](https://greasyfork.org/zh-CN)  
+* 理论上无论是Tampermonkey还是Violentmonkey抑或是Greasemonkey，脚本都是互通的，都可以用，只是理论上！请自行测试  
 
 # 日志
 CHANGELOG.md [GitHub](https://github.com/Brush-JIM/YouXueYuan-JavaScript/blob/master/CHANGELOG.md) or [Bitbucket](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/CHANGELOG.md?fileviewer=file-view-default)  

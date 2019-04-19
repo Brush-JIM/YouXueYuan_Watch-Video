@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         优学院看视频
+// @name         优学院-YouXueYuan-看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      0.3
+// @version      0.4
 // @description  js没学过，技术纯属渣渣。可用来看优学院视频而不用手动点击。
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -10,9 +10,10 @@
 // @run-at       document-idle
 // @icon         https://www.ulearning.cn/ulearning/favicon.ico
 // ==/UserScript==
-
 (function() {
     'use strict';
+    //删除开小差提示框
+    document.querySelector("[data-bind=\"if: $root.modalType() == 'suspend'\"]").parentNode.removeChild(document.querySelector("[data-bind=\"if: $root.modalType() == 'suspend'\"]"));
     var elements = document.getElementsByClassName('operating-area')[0];
     //删除客服按钮
     elements.removeChild(document.getElementsByClassName('custom-service')[0]);
@@ -48,6 +49,7 @@
         div.innerHTML='<button class="btn-hollow" onclick="stop_watch();"><span>刹刹刹车~~~</span></button>';
         elements.appendChild(div);
         window.myVar = setInterval(function(){
+            //window.tiankong();
             if (document.getElementsByClassName("file-media")[0] != null) {
                 if (document.querySelector("[aria-label='Pause']") != null) {
                     if (document.querySelector("[data-bind='text: $root.i18nMessageText().finished']") == null) {
@@ -67,6 +69,21 @@
                     document.querySelector("input[value='1.50']").value = 15;
                     document.querySelector("input[value='1.25']").value = 10;
                     document.querySelector("input[value='0.75']").value = 5;
+                    for (var x = 0;x < document.querySelectorAll("label[class='mejs__speed-selector-label']").length;x++)
+                    {
+                        if (x == 0)
+                        {
+                            document.querySelectorAll("label[class='mejs__speed-selector-label']")[x].innerHTML = '15.00x';
+                        }
+                        else if (x == 1)
+                        {
+                            document.querySelectorAll("label[class='mejs__speed-selector-label']")[x].innerHTML = '10.00x';
+                        }
+                        else
+                        {
+                            document.querySelectorAll("label[class='mejs__speed-selector-label']")[x].innerHTML = '5.00x';
+                        }
+                    }
                     return ;
                 }
                 else {

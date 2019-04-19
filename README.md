@@ -1,10 +1,12 @@
 # 优学院-YouXueYuan-JavaScript
-
+  
+* 可用来看优学院视频而不用手动点击
+* 答题请手动，项目没打算增加答题功能  
+  
 项目地址  
 GitHub:[https://github.com/Brush-JIM/YouXueYuan-JavaScript](https://github.com/Brush-JIM/YouXueYuan-JavaScript)  
 Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/)  
-  
-可用来看优学院视频而不用手动点击  
+Greasy Fork:[https://greasyfork.org/zh-CN/scripts/382033-优学院-youxueyuan-看视频](https://greasyfork.org/zh-CN/scripts/382033-优学院-youxueyuan-看视频)  
   
 Python程序版请到隔壁  
 GitHub:[https://github.com/Brush-JIM/YouXueYuan-Python](https://github.com/Brush-JIM/YouXueYuan-Python)  
@@ -17,10 +19,9 @@ Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-python/](https://bitbucket
     or  
     Bitbucket:[https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/优学院看视频.user.js](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/src/master/优学院看视频.user.js)  
   安装脚本“优学院看视频.user.js”到Tampermonkey/Violentmonkey/Greasemonkey中  
-* 进入课程，右上角的“咨询客服”会修改成按钮，点击改后的按钮即可  
+* 进入课程，右上角的“咨询客服”会修改成其他按钮，点击改后的按钮即可  
 
 # 注意
-* 答题请手动，项目没打算增加自动答题功能  
 * 脚本依赖油猴实现  
   本人使用Tampermonkey  
   Google chrome请安装[Tampermonkey](https://tampermonkey.net/)或[Violentmonkey](https://violentmonkey.github.io/)  
@@ -35,6 +36,7 @@ CHANGELOG.md [GitHub](https://github.com/Brush-JIM/YouXueYuan-JavaScript/blob/ma
 我读的专业不是编程方向的，纯靠兴趣爱好  
 且js没学过，技术纯属渣渣  
 所以出现问题请不要大喷  
+按钮为什么在那个位置？——我没学过网页设计，对这个一窍不通，所以怎么简单怎么来😂  
   
 ---
 代码开源、免费  

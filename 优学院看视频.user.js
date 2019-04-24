@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院-YouXueYuan-看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      1.0
+// @version      1.1
 // @description  js没学过，技术纯属渣渣。可用来看优学院视频而不用手动点击。
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -92,7 +92,7 @@
         {
             unsafeWindow.localStorage.setItem('speed',document.querySelector("input[id='speed']").value);
             unsafeWindow.localStorage.setItem('muted',document.querySelector("input[id='video_muted']").checked);
-            if (document.querySelector('button[id="startstop"]').innerHTML == '开始')
+            if (document.querySelector('button[id="startstop"]').innerHTML == '开始学习')
             {
                 unsafeWindow.watch_class = setInterval(function(){
                     if (document.getElementsByClassName('modal-backdrop fade in')[0] != null) {
@@ -199,12 +199,12 @@
                         };
                     }
                 },1500);
-                document.querySelector('button[id="startstop"]').innerHTML = '停止';
+                document.querySelector('button[id="startstop"]').innerHTML = '停止学习';
             }
             else
             {
                 clearInterval(unsafeWindow.watch_class);
-                document.querySelector('button[id="startstop"]').innerHTML = '开始';
+                document.querySelector('button[id="startstop"]').innerHTML = '开始学习';
             }
         }
     );

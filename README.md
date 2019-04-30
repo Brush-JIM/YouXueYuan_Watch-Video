@@ -11,8 +11,8 @@ Python程序版请到隔壁
   
 ## 食用方法  
 * 安装脚本管理器，方法请看[Greasy Fork](https://greasyfork.org/zh-CN)
-* 访问  [Greasy Fork](https://greasyfork.org/zh-CN/scripts/382033-优学院-YouXueYuan-看视频)
-  安装脚本“优学院看视频.user.js”到脚本管理器中  
+* 访问  [https://greasyfork.org/zh-CN/scripts/382033-优学院-YouXueYuan-看视频](https://greasyfork.org/zh-CN/scripts/382033-优学院-YouXueYuan-看视频)
+* 安装脚本到脚本管理器中  
 * 进入课程，右下角有按钮  
 
 # 日志

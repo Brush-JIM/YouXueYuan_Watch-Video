@@ -1,63 +1,175 @@
 // ==UserScript==
-// @name         优学院看视频
+// @name         优学院-看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.5.2
-// @description  可用来看优学院视频而不用手动点击。
+// @version      2.0
+// @description  js没学过，技术纯属渣渣。可用来看优学院视频而不用手动点击。
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @grant        unsafeWindow
 // @run-at       document-start
 // @icon         https://www.ulearning.cn/ulearning/favicon.ico
-// @supportURL   https://github.com/Brush-JIM/YouXueYuan-JavaScript
 // ==/UserScript==
 
 (function() {
     'use strict';
-    try
-    {
-        unsafeWindow.document.__defineGetter__(
-            'hidden',
-            function()
+    document.addEventListener_ = document.addEventListener;
+    document.removeEventListener_ = document.removeEventListener;
+    document.addEventListener = function(a,b,c) {
+        if (a == 'mousemove')
+        {
+            unsafeWindow.mousemove = b;
+            try
             {
-                return false;
+                clearInterval(unsafeWindow.mousemove);
             }
-        )
-    }
-    catch (error)
-    {
-        Object.defineProperty(
-            document,'hidden',
+            catch(error)
             {
-                get:function()
+                ;
+            }
+            unsafeWindow.mousemove = setInterval (() => {
+                try
                 {
-                    return false;
+                    b();
+                }
+                catch (error)
+                {
+                    ;
                 }
             }
-        );
-    }
-
-    try
-    {
-        unsafeWindow.document.__defineGetter__(
-            'visibilityState',
-            function()
+                                                  , 5000
+                                                 );
+        }
+        else if (a == 'mousedown')
+        {
+            unsafeWindow.mousedown = b;
+            try
             {
-                return 'visible';
+                clearInterval(unsafeWindow.mousedown);
             }
-        )
-    }
-    catch (error)
-    {
-        Object.defineProperty(
-            document,'visibilityState',
+            catch(error)
             {
-                get:function()
+                ;
+            }
+            unsafeWindow.mousedown = setInterval (() => {
+                try
                 {
-                    return 'visible';
+                    b();
+                }
+                catch (error)
+                {
+                    ;
                 }
             }
-        );
+                                                  , 5000
+                                                 );
+        }
+        else if (a == 'keydown')
+        {
+            unsafeWindow.keydown = b;
+            try
+            {
+                clearInterval(unsafeWindow.keydown);
+            }
+            catch(error)
+            {
+                ;
+            }
+            unsafeWindow.keydown = setInterval (() => {
+                try
+                {
+                    b();
+                }
+                catch (error)
+                {
+                    ;
+                }
+            }
+                                                , 5000
+                                               );
+        }
+        else
+        {
+            document.addEventListener_(a,b,c);
+        }
+    }
+    document.removeEventListener = function(a,b,c) {
+        if (a == 'mousemove')
+        {
+            unsafeWindow.mousemove = b;
+            try
+            {
+                clearInterval(unsafeWindow.mousemove);
+            }
+            catch(error)
+            {
+                ;
+            }
+            unsafeWindow.mousemove = setInterval (() => {
+                try
+                {
+                    b();
+                }
+                catch (error)
+                {
+                    ;
+                }
+            }
+                                                  , 5000
+                                                 );
+        }
+        else if (a == 'mousedown')
+        {
+            unsafeWindow.mousedown = b;
+            try
+            {
+                clearInterval(unsafeWindow.mousedown);
+            }
+            catch(error)
+            {
+                ;
+            }
+            unsafeWindow.mousedown = setInterval (() => {
+                try
+                {
+                    b();
+                }
+                catch (error)
+                {
+                    ;
+                }
+            }
+                                                  , 5000
+                                                 );
+        }
+        else if (a == 'keydown')
+        {
+            unsafeWindow.keydown = b;
+            try
+            {
+                clearInterval(unsafeWindow.keydown);
+            }
+            catch(error)
+            {
+                ;
+            }
+            unsafeWindow.keydown = setInterval (() => {
+                try
+                {
+                    b();
+                }
+                catch (error)
+                {
+                    ;
+                }
+            }
+                                                , 5000
+                                               );
+        }
+        else
+        {
+            document.removeEventListener_(a,b,c);
+        }
     }
     $(unsafeWindow.document).ready
     (
@@ -223,7 +335,7 @@
                                 for (var k = 0; k < document.querySelectorAll("[data-bind='text: $root.nextPageName()']").length; ++k) {
                                     console.log(document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML);
                                     if (document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML == "没有了") {
-                                        setTimeout_(function(){
+                                        setTimeout(function(){
                                             try
                                             {
                                                 unsafeWindow.koLearnCourseViewModel.goBack();

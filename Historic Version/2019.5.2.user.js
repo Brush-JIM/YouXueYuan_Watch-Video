@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.5.2.1
+// @version      2019.5.2
 // @description  可用来看优学院视频而不用手动点击。
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -223,9 +223,17 @@
                                 for (var k = 0; k < document.querySelectorAll("[data-bind='text: $root.nextPageName()']").length; ++k) {
                                     console.log(document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML);
                                     if (document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML == "没有了") {
-                                        unsafeWindow.koLearnCourseViewModel.goBack();
+                                        setTimeout_(function(){
+                                            try
+                                            {
+                                                unsafeWindow.koLearnCourseViewModel.goBack();
+                                            }
+                                            catch (error)
+                                            {
+                                                console.log(error);
+                                            }
+                                        },1500);
                                         clearInterval(unsafeWindow.watch_class);
-                                        document.querySelector('button[id="startstop"]').innerHTML = '停止学习';
                                         return (true);
                                     };
                                 };

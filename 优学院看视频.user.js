@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.5.2.1
+// @version      2019.5.15
 // @description  可用来看优学院视频而不用手动点击。
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -77,10 +77,11 @@
             var xfk = document.createElement('div');
             xfk.setAttribute("style", "position: fixed;height: 300px;bottom: 10%;z-index: 9999;right: 70px; display: none;");
             xfk.setAttribute("id", "set-mune-hide");
-            xfk.innerHTML = '<div style="display: block;overflow: hidden;height: 300px;width: 300px;/* border-radius: 8px; *//* box-shadow: rgba(106, 115, 133, 0.22) 0px 6px 12px 0px; */border: 1px solid rgb(233, 234, 236);background-color: rgb(255, 255, 255);"><div style="display: block; border-bottom: 1px solid rgb(230, 230, 230); height: 35px; line-height: 35px; margin: 0px; padding: 0px; overflow: hidden;"><span style="float: left;display: inline;padding-left: 8px;font: 700 14px/35px SimSun;">设置 & 开关</span></div><div style="display: block; position: absolute; top: 36px; width: 100%; height: calc(100% - 36px);"><div style="height: 100%; overflow: auto; padding: 0px 12px; margin: 0px;"><div><label style="display: inline;" title="调速">现在倍速：<input id="speed" type="text"></label></div><div><label style="display: inline;" title="静音"><input id="video_muted" type="checkbox">静音</label></div><div><label style="display: inline;" title="开始/停止"><button id="startstop">开始学习</button></label></div></div></div></div>';
+            xfk.innerHTML = '<div style="display: block;overflow: hidden;height: 300px;width: 300px;/* border-radius: 8px; *//* box-shadow: rgba(106, 115, 133, 0.22) 0px 6px 12px 0px; */border: 1px solid rgb(233, 234, 236);background-color: rgb(255, 255, 255);"><div style="display: block; border-bottom: 1px solid rgb(230, 230, 230); height: 35px; line-height: 35px; margin: 0px; padding: 0px; overflow: hidden;"><span style="float: left;display: inline;padding-left: 8px;font: 700 14px/35px SimSun;">设置 & 开关</span></div><div style="display: block; position: absolute; top: 36px; width: 100%; height: calc(100% - 36px);"><div style="height: 100%; overflow: auto; padding: 0px 12px; margin: 0px;"><div><label style="display: inline;" title="调速">现在倍速：<input id="speed" type="text"></label></div><div><label style="display: inline;" title="静音"><input id="video_muted" type="checkbox">静音</label></div><div><label style="display: inline;" title="退出"><input id="exit" type="checkbox">完成后返回课程目录</label></div><div><label style="display: inline;" title="开始/停止"><button id="startstop">开始学习</button></label></div></div></div></div>';
             document.querySelector('body').appendChild(xfk);
             var speed;
             var muted;
+            var auto_exit;
             if (unsafeWindow.localStorage.getItem('speed') == null)
             {
                 $('input[id="speed"]')[0].value = '1';
@@ -109,14 +110,34 @@
                     muted = false;
                 }
             }
+            if (unsafeWindow.localStorage.getItem('auto-exit') == null)
+            {
+                $('input[id="exit"]')[0].checked = true;
+                auto_exit = true;
+            }
+            else
+            {
+                if (unsafeWindow.localStorage.getItem('auto-exit') == 'true')
+                {
+                    $('input[id="exit"]')[0].checked = true;
+                    auto_exit = true;
+                }
+                else
+                {
+                    $('input[id="exit"]')[0].checked = false;
+                    auto_exit = false;
+                }
+            }
             $("#set-auto").click(
                 function()
                 {
+                    //取消跳转网页提示
+                    $(unsafeWindow).off('beforeunload');
                     if ($('span[id="set-auto"]')[0].innerText == '设置\n&\n开关')
                     {
                         $('div[id="set-mune-hide"]').attr('style','position: fixed;height: 300px;bottom: 10%;z-index: 9999;right: 70px;');
                         $('div[id="set-mune-hide"]').attr('id','set-mune-unhide');
-                        $('span[id="set-auto"]')[0].innerHTML = '保存<br />or<br />隐藏';
+                        $('span[id="set-auto"]')[0].innerHTML = '保存<br />&<br />隐藏';
                     }
                     else
                     {
@@ -125,21 +146,27 @@
                         $('span[id="set-auto"]')[0].innerHTML = '设置<br />&<br />开关'
                         unsafeWindow.localStorage.setItem('speed',$('input[id="speed"]')[0].value);
                         unsafeWindow.localStorage.setItem('muted',$('input[id="video_muted"]')[0].checked);
+                        unsafeWindow.localStorage.setItem('auto-exit',$('input[id="exit"]')[0].checked);
                         speed = $('input[id="speed"]')[0].value;
                         muted = $('input[id="video_muted"]')[0].checked;
+                        auto_exit = $('input[id="exit"]')[0].checked;
                     }
                 }
             )
             $("#startstop").click(
                 function()
                 {
+                    //取消跳转网页提示
+                    $(unsafeWindow).off('beforeunload');
                     unsafeWindow.localStorage.setItem('speed',document.querySelector("input[id='speed']").value);
                     unsafeWindow.localStorage.setItem('muted',document.querySelector("input[id='video_muted']").checked);
+                    unsafeWindow.localStorage.setItem('auto-exit',$('input[id="exit"]')[0].checked);
                     speed = $('input[id="speed"]')[0].value;
                     muted = $('input[id="video_muted"]')[0].checked;
+                    auto_exit = $('input[id="exit"]')[0].checked;
                     if ($('button[id="startstop"]')[0].innerHTML == '开始学习')
                     {
-                        unsafeWindow.watch_class = setInterval(function(){
+                        unsafeWindow.watch_class = function(){
                             if (document.getElementsByClassName('modal-backdrop fade in')[0] != null) {
                                 console.log('提示框');
                                 if (document.querySelector("[data-bind='text: $root.i18nMsgText().gotIt']") != null) {
@@ -152,7 +179,7 @@
                                 }
                                 else {
                                     alert('未知情况，暂无应对方案，请将本页面截屏，返回给作者。');
-                                    clearInterval(unsafeWindow.watch_class);
+                                    document.querySelector('button[id="startstop"]').innerHTML = '开始学习';
                                     return (false);
                                 }
                             };
@@ -223,19 +250,27 @@
                                 for (var k = 0; k < document.querySelectorAll("[data-bind='text: $root.nextPageName()']").length; ++k) {
                                     console.log(document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML);
                                     if (document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML == "没有了") {
-                                        unsafeWindow.koLearnCourseViewModel.goBack();
-                                        clearInterval(unsafeWindow.watch_class);
-                                        document.querySelector('button[id="startstop"]').innerHTML = '停止学习';
+                                        if (auto_exit == true)
+                                        {
+                                            unsafeWindow.koLearnCourseViewModel.goBack();
+                                        }
+                                        else
+                                        {
+                                            document.querySelector('button[id="startstop"]').innerHTML = '学习完成（该按钮已不可点击）';
+                                            document.querySelector('button[id="startstop"]').disabled = true;
+                                        }
                                         return (true);
                                     };
                                 };
                             }
-                        },1500);
+                            unsafeWindow.watch_class_ = setTimeout(unsafeWindow.watch_class,3000);
+                        }
                         document.querySelector('button[id="startstop"]').innerHTML = '停止学习';
+                        unsafeWindow.watch_class();
                     }
                     else
                     {
-                        clearInterval(unsafeWindow.watch_class);
+                        clearTimeout(unsafeWindow.watch_class_);
                         document.querySelector('button[id="startstop"]').innerHTML = '开始学习';
                     }
                 }

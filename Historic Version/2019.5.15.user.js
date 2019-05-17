@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.5.17
+// @version      2019.5.15
 // @description  可用来看优学院视频而不用手动点击。
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -77,7 +77,7 @@
             var xfk = document.createElement('div');
             xfk.setAttribute("style", "position: fixed;height: 300px;bottom: 10%;z-index: 9999;right: 70px; display: none;");
             xfk.setAttribute("id", "set-mune-hide");
-            xfk.innerHTML = '<div style="display: block;overflow: hidden;height: 300px;width: 300px;/* border-radius: 8px; *//* box-shadow: rgba(106, 115, 133, 0.22) 0px 6px 12px 0px; */border: 1px solid rgb(233, 234, 236);background-color: rgb(255, 255, 255);"><div style="display: block; border-bottom: 1px solid rgb(230, 230, 230); height: 35px; line-height: 35px; margin: 0px; padding: 0px; overflow: hidden;"><span style="float: left;display: inline;padding-left: 8px;font: 700 14px/35px SimSun;">设置 & 开关</span></div><div style="display: block; position: absolute; top: 36px; width: 100%; height: calc(100% - 36px);"><div style="height: 100%; overflow: auto; padding: 0px 12px; margin: 0px;"><div><label style="display: inline;" title="调速">现在倍速：<input id="speed" type="text"></label></div><div><label style="display: inline;" title="静音"><input id="video_muted" type="checkbox">静音</label></div><div><label style="display: inline;" title="退出"><input id="exit" type="checkbox">完成后返回课程目录</label></div><div><label style="display: inline;" title="开始/停止"><button id="startstop">开始学习</button></label></div><span>慎用调速功能！</span></div></div></div>';
+            xfk.innerHTML = '<div style="display: block;overflow: hidden;height: 300px;width: 300px;/* border-radius: 8px; *//* box-shadow: rgba(106, 115, 133, 0.22) 0px 6px 12px 0px; */border: 1px solid rgb(233, 234, 236);background-color: rgb(255, 255, 255);"><div style="display: block; border-bottom: 1px solid rgb(230, 230, 230); height: 35px; line-height: 35px; margin: 0px; padding: 0px; overflow: hidden;"><span style="float: left;display: inline;padding-left: 8px;font: 700 14px/35px SimSun;">设置 & 开关</span></div><div style="display: block; position: absolute; top: 36px; width: 100%; height: calc(100% - 36px);"><div style="height: 100%; overflow: auto; padding: 0px 12px; margin: 0px;"><div><label style="display: inline;" title="调速">现在倍速：<input id="speed" type="text"></label></div><div><label style="display: inline;" title="静音"><input id="video_muted" type="checkbox">静音</label></div><div><label style="display: inline;" title="退出"><input id="exit" type="checkbox">完成后返回课程目录</label></div><div><label style="display: inline;" title="开始/停止"><button id="startstop">开始学习</button></label></div></div></div></div>';
             document.querySelector('body').appendChild(xfk);
             var speed;
             var muted;
@@ -177,99 +177,91 @@
                                     console.log('未完成确认');
                                     document.querySelector("[data-bind='text: $root.i18nMsgText().confirmLeave']").click();
                                 }
-                                else if (document.querySelector("[data-bind='text: i18nMessageText().nextChapter']") != null )
-                                {
-                                    console.log('章节统计');
-                                    document.querySelector("[data-bind='text: i18nMessageText().nextChapter']").click();
-                                }
                                 else {
                                     alert('未知情况，暂无应对方案，请将本页面截屏，返回给作者。');
                                     document.querySelector('button[id="startstop"]').innerHTML = '开始学习';
                                     return (false);
                                 }
-                            }
-                            else
+                            };
+                            var data = new Array();
+                            for (var i = 0;i < $('video').length;i++)
                             {
-                                var data = new Array();
-                                for (var i = 0;i < $('video').length;i++)
+                                data[i] = new Array();
+                                data[i]["video"] = document.querySelectorAll('video')[i];
+                            }
+                            var counts = 0;
+                            for (var count = 0;count < document.querySelectorAll("div[class='video-info'] span").length;count++)
+                            {
+                                var data_bind = document.querySelectorAll("div[class='video-info'] span")[count].getAttribute('data-bind');
+                                if (data_bind == 'text: $root.i18nMessageText().finished')
                                 {
-                                    data[i] = new Array();
-                                    data[i]["video"] = document.querySelectorAll('video')[i];
+                                    data[counts]['s'] = true;
+                                    counts++;
+                                    console.log(true);
                                 }
-                                var counts = 0;
-                                for (var count = 0;count < document.querySelectorAll("div[class='video-info'] span").length;count++)
+                                else if (data_bind == 'text: $root.i18nMessageText().viewed' || data_bind == 'text: $root.i18nMessageText().unviewed')
                                 {
-                                    var data_bind = document.querySelectorAll("div[class='video-info'] span")[count].getAttribute('data-bind');
-                                    if (data_bind == 'text: $root.i18nMessageText().finished')
-                                    {
-                                        data[counts]['s'] = true;
-                                        counts++;
-                                        console.log(true);
-                                    }
-                                    else if (data_bind == 'text: $root.i18nMessageText().viewed' || data_bind == 'text: $root.i18nMessageText().unviewed')
-                                    {
-                                        data[counts]['s'] = false;
-                                        counts++;
-                                        console.log(false);
-                                    }
+                                    data[counts]['s'] = false;
+                                    counts++;
+                                    console.log(false);
                                 }
-                                var all = true
-                                for (var j = 0;data.length > j;j++)
+                            }
+                            var all = true
+                            for (var j = 0;data.length > j;j++)
+                            {
+                                if (data[j]['s'] == false)
                                 {
-                                    if (data[j]['s'] == false)
+                                    all = false;
+                                    if (data[j]['video'].paused == true)
                                     {
-                                        all = false;
-                                        if (data[j]['video'].paused == true)
+                                        data[j]['video'].play();
+                                        data[j]['video'].muted = muted;
+                                        data[j]['video'].playbackRate = unsafeWindow.localStorage.getItem('speed');
+                                        data[j]['video'].muted = unsafeWindow.localStorage.getItem('muted');
+                                    }
+                                    else
+                                    {
+                                        if (unsafeWindow.localStorage.getItem('muted') == 'true')
                                         {
-                                            data[j]['video'].play();
-                                            data[j]['video'].muted = muted;
-                                            data[j]['video'].playbackRate = unsafeWindow.localStorage.getItem('speed');
-                                            data[j]['video'].muted = unsafeWindow.localStorage.getItem('muted');
+                                            if (data[j]['video'].muted != true)
+                                            {
+                                                data[j]['video'].muted = true;
+                                            }
                                         }
                                         else
                                         {
-                                            if (unsafeWindow.localStorage.getItem('muted') == 'true')
+                                            if (data[j]['video'].muted != false)
                                             {
-                                                if (data[j]['video'].muted != true)
-                                                {
-                                                    data[j]['video'].muted = true;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (data[j]['video'].muted != false)
-                                                {
-                                                    data[j]['video'].muted = false;
-                                                }
-                                            }
-                                            if (data[j]['video'].playbackRate != unsafeWindow.localStorage.getItem('speed'))
-                                            {
-                                                data[j]['video'].playbackRate = unsafeWindow.localStorage.getItem('speed');
+                                                data[j]['video'].muted = false;
                                             }
                                         }
-                                        break;
+                                        if (data[j]['video'].playbackRate != unsafeWindow.localStorage.getItem('speed'))
+                                        {
+                                            data[j]['video'].playbackRate = unsafeWindow.localStorage.getItem('speed');
+                                        }
                                     }
+                                    break;
                                 }
-                                if (all == true)
-                                {
-                                    console.log('下一页');
-                                    unsafeWindow.koLearnCourseViewModel.goNextPage();
-                                    for (var k = 0; k < document.querySelectorAll("[data-bind='text: $root.nextPageName()']").length; ++k) {
-                                        console.log(document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML);
-                                        if (document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML == "没有了") {
-                                            if (auto_exit == true)
-                                            {
-                                                unsafeWindow.koLearnCourseViewModel.goBack();
-                                            }
-                                            else
-                                            {
-                                                document.querySelector('button[id="startstop"]').innerHTML = '学习完成（该按钮已不可点击）';
-                                                document.querySelector('button[id="startstop"]').disabled = true;
-                                            }
-                                            return (true);
-                                        };
+                            }
+                            if (all == true)
+                            {
+                                console.log('下一页');
+                                unsafeWindow.koLearnCourseViewModel.goNextPage();
+                                for (var k = 0; k < document.querySelectorAll("[data-bind='text: $root.nextPageName()']").length; ++k) {
+                                    console.log(document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML);
+                                    if (document.querySelectorAll("[data-bind='text: $root.nextPageName()']")[k].innerHTML == "没有了") {
+                                        if (auto_exit == true)
+                                        {
+                                            unsafeWindow.koLearnCourseViewModel.goBack();
+                                        }
+                                        else
+                                        {
+                                            document.querySelector('button[id="startstop"]').innerHTML = '学习完成（该按钮已不可点击）';
+                                            document.querySelector('button[id="startstop"]').disabled = true;
+                                        }
+                                        return (true);
                                     };
-                                }
+                                };
                             }
                             unsafeWindow.watch_class_ = setTimeout(unsafeWindow.watch_class,3000);
                         }

@@ -1,5 +1,9 @@
 # 日志  
 
+## 19.5.17
+* 可能修复了小测之后下一页的视频可能跳过的问题
+* 感谢@kuailezhiyuan[反馈](https://github.com/Brush-JIM/YouXueYuan-JavaScript/issues/1)该问题
+
 ## 19.5.15
 * 改善运行方式
 * 增加完成课程后是否返回课程目录选项

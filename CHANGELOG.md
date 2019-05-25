@@ -1,5 +1,12 @@
 # 日志  
 
+## 19.5.26
+#### 从19.5.21开始，开始重写，终于写完
+* 重构脚本
+* 取消使用localStorage.*，重新用回GM_*函数
+* 增加公告栏，Greasemonkey可能用不了
+* 增强脚本稳定性
+
 ## 19.5.17
 * 可能修复了小测之后下一页的视频可能跳过的问题
 * 感谢@kuailezhiyuan[反馈](https://github.com/Brush-JIM/YouXueYuan-JavaScript/issues/1)该问题

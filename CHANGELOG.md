@@ -1,5 +1,8 @@
 # 日志  
 
+## 19.5.27
+* 原项目名“YouXueYuan-JavaScript”项目更名为“YouXueYuan_Watch-Video”，现项目名“YouXueYuan-JavaScript”为前项目“YouXueYuan-Auto_Login”增加其他功能后更名而成
+
 ## 19.5.26
 #### 从19.5.21开始，开始重写，终于写完
 * 重构脚本

@@ -1,5 +1,8 @@
 # 日志  
 
+## 19.5.28
+* 修复一处导致脚本停止继续执行的问题
+
 ## 19.5.27
 * 原项目名“YouXueYuan-JavaScript”项目更名为“YouXueYuan_Watch-Video”，现项目名“YouXueYuan-JavaScript”为前项目“YouXueYuan-Auto_Login”增加其他功能后更名而成
 

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.05.28
+// @version      2019.05.26
 // @description  可用来看优学院视频而不用手动点击
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -163,7 +163,6 @@
                                                             document.querySelector('button[id="startstop"]').innerHTML = '开始学习';
                                                             return (false);
                                                         }
-                                                        setTimeout(watch_class,2000);
                                                     }
                                                     else
                                                     {
@@ -261,13 +260,12 @@
                     } )
                 } )
             } )
-            gm_xml( {
-                method: "GET",
-                url:'https://github.com/Brush-JIM/Broadcast/raw/master/YouXueYuan-JavaScript.md',
-                onload: function( response ) {
-                    $('span[id="trips"]')[0].innerHTML = response[ 'responseText' ];
-                }
-            } )
+            gm_xml({method: "GET",
+                    url:'https://github.com/Brush-JIM/Broadcast/raw/master/YouXueYuan-JavaScript.md',
+                    onload: function( response ) {
+                        $('span[id="trips"]')[0].innerHTML = response[ 'responseText' ];
+                    }
+                   })
         }
     )
 })();

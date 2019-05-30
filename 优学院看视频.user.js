@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院看视频
 // @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.05.28
+// @version      2019.05.30
 // @description  可用来看优学院视频而不用手动点击
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -17,10 +17,12 @@
 // @run-at       document-start
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @icon         https://www.ulearning.cn/ulearning/favicon.ico
+// @supportURL   https://greasyfork.org/zh-CN/scripts/382033-优学院看视频
 // ==/UserScript==
 
 (function() {
     'use strict';
+    unsafeWindow.localStorage.removeItem('failureRecord');
     try {
         unsafeWindow.document.__defineGetter__( 'hidden' , function() {
             return false;
@@ -111,7 +113,7 @@
                             function()
                             {
                                 //取消跳转网页提示
-                                $(unsafeWindow).off('beforeunload');
+                                unsafeWindow.$(unsafeWindow).off('beforeunload');
                                 if ($('span[id="set-auto"]')[0].innerText == '设置\n&\n开关')
                                 {
                                     $('div[id="set-mune-hide"]').attr('style','position: fixed;height: 300px;bottom: 10%;z-index: 9999;right: 70px;');
@@ -133,7 +135,7 @@
                             function()
                             {
                                 //取消跳转网页提示
-                                $(unsafeWindow).off('beforeunload');
+                                unsafeWindow.$(unsafeWindow).off('beforeunload');
                                 gm_set( 'speed' , $('input[id="speed"]')[0].value );
                                 gm_set( 'muted' , $('input[id="video_muted"]')[0].checked );
                                 gm_set( 'auto-exit' , $('input[id="exit"]')[0].checked );

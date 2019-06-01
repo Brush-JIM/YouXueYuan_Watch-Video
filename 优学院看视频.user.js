@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         优学院看视频
-// @namespace    https://github.com/Brush-JIM/YouXueYuan-JavaScript
-// @version      2019.05.30
+// @namespace    https://greasyfork.org/zh-CN/scripts/382033-优学院看视频
+// @version      2019.06.01
 // @description  可用来看优学院视频而不用手动点击
 // @author       Brush-JIM
 // @match        https://ua.ulearning.cn/learnCourse/learnCourse.html?courseId=*&chapterId=*
@@ -85,6 +85,7 @@
             xfk.setAttribute("id", "set-mune-hide");
             xfk.innerHTML = '<div style="display: block;overflow: hidden;height: 300px;width: 300px;border: 1px solid rgb(233, 234, 236);background-color: rgb(255, 255, 255);"><div style="display: block; border-bottom: 1px solid rgb(230, 230, 230); height: 35px; line-height: 35px; margin: 0px; padding: 0px; overflow: hidden;"><span style="float: left;display: inline;padding-left: 8px;font: 700 14px/35px SimSun;">设置 & 开关</span></div><div style="display: block; position: absolute; top: 36px; width: 100%; height: calc(100% - 36px);"><div style="height: 100%; overflow: auto; padding: 0px 12px; margin: 0px;"><div><label style="display: inline;" title="调速">现在倍速：<input id="speed" type="text"></label></div><div><label style="display: inline;" title="静音"><input id="video_muted" type="checkbox">静音</label></div><div><label style="display: inline;" title="退出"><input id="exit" type="checkbox">完成后返回课程目录</label></div><div><label style="display: inline;" title="开始/停止"><button id="startstop">开始学习</button></label></div>——————————<br />公告（Greasemonkey可能看不到）：<br /><span id="trips"></span></div></div></div>';
             document.querySelector('body').appendChild(xfk);
+            unsafeWindow.document.body.addEventListener('DOMSubtreeModified',function(){unsafeWindow.$(unsafeWindow).off('beforeunload')} , false);
             gm_get( 'speed' ).then( ( speed ) => {
                 gm_get( 'muted' ).then( ( muted ) => {
                     gm_get( 'auto-exit' ).then( ( auto_exit ) => {
@@ -112,8 +113,6 @@
                         $("#set-auto").click(
                             function()
                             {
-                                //取消跳转网页提示
-                                unsafeWindow.$(unsafeWindow).off('beforeunload');
                                 if ($('span[id="set-auto"]')[0].innerText == '设置\n&\n开关')
                                 {
                                     $('div[id="set-mune-hide"]').attr('style','position: fixed;height: 300px;bottom: 10%;z-index: 9999;right: 70px;');
@@ -134,8 +133,6 @@
                         $("#startstop").click(
                             function()
                             {
-                                //取消跳转网页提示
-                                unsafeWindow.$(unsafeWindow).off('beforeunload');
                                 gm_set( 'speed' , $('input[id="speed"]')[0].value );
                                 gm_set( 'muted' , $('input[id="video_muted"]')[0].checked );
                                 gm_set( 'auto-exit' , $('input[id="exit"]')[0].checked );

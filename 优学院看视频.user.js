@@ -18,7 +18,6 @@
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @icon         https://www.ulearning.cn/ulearning/favicon.ico
 // @supportURL   https://greasyfork.org/zh-CN/scripts/382033-优学院看视频
-// @connect      github.com
 // ==/UserScript==
 
 (function() {
@@ -121,7 +120,7 @@
                                             data[counts]['state']=true
                                         }
                                     }else{
-                                        data[counts]['onwaiting']=true
+                                        data[counts]['onwaiting']=false
                                     }
                                     counts++;
                                 }

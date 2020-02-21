@@ -1,10 +1,14 @@
 # 优学院看视频-YouXueYuan_Watch-Video
 
 * 可用来看优学院视频而不用手动点击
-* 答题请手动，项目没打算增加答题功能  
-  
-项目地址  
-[GitHub](https://github.com/Brush-JIM/YouXueYuan_Watch-Video)、[Bitbucket](https://bitbucket.org/Brush-JIM/youxueyuan-javascript/)、[Greasy Fork](https://greasyfork.org/zh-CN/scripts/382033-优学院-youxueyuan-看视频)  
+
+---
+### 2020/02/21
+这个脚本原本是我业余时间自学js代码而编写的（专业的人一看应该能发现脚本基本都是些入门级代码）  
+由于专业原因（本人不是学计算机，且没时间），以及现在有更专业的人写脚本了，那这个脚本也完成了它的任务  
+其他人写的脚本可以在 [GitHub](https://github.com) 以及 [Greasy Fork](https://greasyfork.org/zh-CN) 查找
+
+---
   
 Python程序版请到隔壁  
 [GitHub](https://github.com/Brush-JIM/YouXueYuan-Python)、[Bitbucket](https://bitbucket.org/Brush-JIM/youxueyuan-python/)  
